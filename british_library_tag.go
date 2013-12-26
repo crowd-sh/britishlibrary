@@ -48,6 +48,8 @@ func main() {
 
 	writer := csv.NewWriter(results_file)
 
+	image_urls := imageUrls()
+
 	image_tasks := Task{
 		Title:       "Tag the appropriate images",
 		Description: "Look at the image and fill out the appropriate fields. We want to be able to tag all the images correctly. Fill out any appropriate tag that you see.",
@@ -71,10 +73,10 @@ func main() {
 			}
 			writer.Flush()
 		},
-		Tasks: imageUrls(),
+		Tasks: image_urls,
 	}
 
-	fmt.Println("Loaded and starting")
+	fmt.Printf("Loaded %d images and starting\n", len(image_urls))
 	serve := HtmlServe{}
 	go Serve()
 
