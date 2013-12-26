@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/csv"
+	"flag"
 	"fmt"
 	. "github.com/abhiyerra/workmachine/app"
 	"os"
@@ -18,8 +19,8 @@ type ImageTagging struct {
 	TraditionalClothing  OutputField `work_desc:"If its a person are they wearing a traditional costume?" work_id:"traditional_clothing" work_type:"checkbox"`
 }
 
-func imageUrls() (images []ImageTagging) {
-	file, err := os.Open("list_of_pictures.csv")
+func imageUrls(in_file string) (images []ImageTagging) {
+	file, err := os.Open(in_file)
 	if err != nil {
 		panic(err)
 	}
@@ -40,7 +41,16 @@ func imageUrls() (images []ImageTagging) {
 }
 
 func main() {
-	results_file, err := os.Create("results.csv")
+	var in_file string
+	flag.StringVar(&in_file, "in_file", "", "input file")
+	flag.Parse()
+
+	if in_file == "" {
+		fmt.Println("No in file")
+		os.Exit(1)
+	}
+
+	results_file, err := os.Create(fmt.Sprintf("%s_out.csv", in_file))
 	if err != nil {
 		panic(err)
 	}
@@ -48,7 +58,7 @@ func main() {
 
 	writer := csv.NewWriter(results_file)
 
-	image_urls := imageUrls()
+	image_urls := imageUrls(in_file)
 
 	image_tasks := Task{
 		Title:       "Tag the appropriate images",
