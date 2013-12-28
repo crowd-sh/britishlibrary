@@ -15,8 +15,8 @@ This is a project written in go so the best way to run it is to run
 
 or complie the app
 
-   go build
-   ./british_library_tag -in_file in_file.csv
+    go build
+    ./british_library_tag -in_file in_file.csv
 
 The files are in lists. This will eventually make use of the
 imagedirectory and have more relavent information.
