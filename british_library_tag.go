@@ -17,6 +17,8 @@ type ImageTagging struct {
 	IsPattern            OutputField `work_desc:"Is the image of a pattern?" work_id:"is_pattern" work_type:"checkbox"`
 	IsPerson             OutputField `work_desc:"Is the image of a person?" work_id:"is_person" work_type:"checkbox"`
 	TraditionalClothing  OutputField `work_desc:"If its a person are they wearing a traditional costume?" work_id:"traditional_clothing" work_type:"checkbox"`
+	IsMap                OutputField `work_desc:"Is the image a map?" work_id:"is_map" work_type:"checkbox"`
+	IsDiagram            OutputField `work_desc:"Is the image a diagram?" work_id:"is_diagram" work_type:"checkbox"`
 }
 
 func imageUrls(in_file string) (images []ImageTagging) {
@@ -50,7 +52,8 @@ func main() {
 		os.Exit(1)
 	}
 
-	results_file, err := os.Create(fmt.Sprintf("%s_out.csv", in_file))
+	results_filename := fmt.Sprintf("%s_out.csv", in_file)
+	results_file, err := os.OpenFile(results_filename, os.O_CREATE|os.O_RDWR|os.O_APPEND, 0660)
 	if err != nil {
 		panic(err)
 	}
