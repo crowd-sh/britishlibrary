@@ -16,7 +16,7 @@ type ImageTagging struct {
 	IsLandscape          OutputField `work_desc:"Is the image of a landscape?" work_id:"is_landscape" work_type:"checkbox"`
 	IsPattern            OutputField `work_desc:"Is the image of a pattern?" work_id:"is_pattern" work_type:"checkbox"`
 	IsPerson             OutputField `work_desc:"Is the image of a person?" work_id:"is_person" work_type:"checkbox"`
-	TraditionalClothing  OutputField `work_desc:"If its a person are they wearing a traditional costume?" work_id:"traditional_clothing" work_type:"checkbox"`
+	TraditionalClothing  OutputField `work_desc:"If it's a person are they wearing a traditional costume?" work_id:"traditional_clothing" work_type:"checkbox"`
 	IsMap                OutputField `work_desc:"Is the image a map?" work_id:"is_map" work_type:"checkbox"`
 	IsDiagram            OutputField `work_desc:"Is the image a diagram?" work_id:"is_diagram" work_type:"checkbox"`
 }
