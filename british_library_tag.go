@@ -63,9 +63,13 @@ func main() {
 
 	image_urls := imageUrls(in_file)
 
+	description := `
+Look at the image and fill out the appropriate fields. We want to be able to tag all the images correctly. Fill out any appropriate tag that you see.
+Here are further instructions: https://github.com/abhiyerra/britishlibrary/wiki/Instructions-&-FAQ`
+
 	image_tasks := Task{
 		Title:       "Tag the appropriate images",
-		Description: "Look at the image and fill out the appropriate fields. We want to be able to tag all the images correctly. Fill out any appropriate tag that you see.",
+		Description: description,
 		Write: func(j *Job) {
 			fmt.Printf("%v\n", j)
 
