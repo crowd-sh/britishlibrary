@@ -95,7 +95,7 @@ Here are further instructions: https://github.com/abhiyerra/britishlibrary/wiki/
 
 	fmt.Printf("Loaded %d images and starting\n", len(image_urls))
 	serve := HtmlServe{}
-	go Serve()
+	go HtmlServer()
 
 	fmt.Println("Serving")
 	var backend Assigner = serve
