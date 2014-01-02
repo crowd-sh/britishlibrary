@@ -59,8 +59,6 @@ func main() {
 	}
 	defer results_file.Close()
 
-	writer := csv.NewWriter(results_file)
-
 	image_urls := imageUrls(in_file)
 
 	description := `
@@ -70,27 +68,8 @@ Here are further instructions: https://github.com/abhiyerra/britishlibrary/wiki/
 	image_tasks := Task{
 		Title:       "Tag the appropriate images",
 		Description: description,
-		Write: func(j *Job) {
-			fmt.Printf("%v\n", j)
-
-			var output []string
-
-			for _, i := range j.InputFields {
-				output = append(output, i.Value)
-				fmt.Println(i.Value)
-			}
-
-			for _, i := range j.OutputFields {
-				output = append(output, i.Value)
-				fmt.Println(i.Value)
-			}
-
-			if err := writer.Write(output); err != nil {
-				panic(err)
-			}
-			writer.Flush()
-		},
-		Tasks: image_urls,
+		Write:       CsvJobWriter(results_file),
+		Tasks:       image_urls,
 	}
 
 	fmt.Printf("Loaded %d images and starting\n", len(image_urls))
