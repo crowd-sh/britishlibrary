@@ -11,7 +11,7 @@ import (
 type ImageTagging struct {
 	ImageUrl             InputField  `work_desc:"Use this image to fill the information below." work_id:"image_url" work_type:"image"`
 	Tags                 OutputField `work_desc:"List all the relevent tags separated by a comma for the image. Ex. trees, castle, person" work_id:"tags"`
-	TextInImage          OutputField `work_desc:"Put any text that appears on the image here." work_id:"text_in_image"`
+	TextInImage          OutputField `work_desc:"Put any text that appears on the image here. Put one item per line." work_id:"text_in_image" work_type:"long_text"`
 	IsCorrectOrientation OutputField `work_desc:"Is the image in the correct orientation?" work_id:"is_correct_orientation" work_type:"checkbox"`
 	IsLandscape          OutputField `work_desc:"Is the image of a landscape?" work_id:"is_landscape" work_type:"checkbox"`
 	IsPattern            OutputField `work_desc:"Is the image of a pattern?" work_id:"is_pattern" work_type:"checkbox"`
@@ -63,7 +63,7 @@ func main() {
 
 	description := `
 Look at the image and fill out the appropriate fields. We want to be able to tag all the images correctly. Fill out any appropriate tag that you see.
-Here are further instructions: https://github.com/abhiyerra/britishlibrary/wiki/Instructions-&-FAQ`
+ <a href="https://github.com/abhiyerra/britishlibrary/wiki/Instructions-&-FAQ">Here are further Instructions and FAQ</a>`
 
 	image_tasks := Task{
 		Title:       "Tag the appropriate images",
