@@ -4,7 +4,7 @@ import (
 	"encoding/csv"
 	"flag"
 	"fmt"
-	. "github.com/abhiyerra/workmachine/app"
+	. "github.com/abhiyerra/workmachine/crowdflow"
 	"os"
 )
 
