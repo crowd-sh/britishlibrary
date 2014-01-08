@@ -13,10 +13,10 @@ type ImageTagging struct {
 	Tags                 OutputField `work_desc:"List all the relevent tags separated by a comma for the image. Ex. trees, castle, person" work_id:"tags"`
 	TextInImage          OutputField `work_desc:"Put any text that appears on the image here. Put one item per line." work_id:"text_in_image" work_type:"long_text"`
 	IsCorrectOrientation OutputField `work_desc:"Is the image in the correct orientation?" work_id:"is_correct_orientation" work_type:"checkbox"`
-	IsLandscape          OutputField `work_desc:"Is the image of a landscape?" work_id:"is_landscape" work_type:"checkbox"`
+	IsLandscape          OutputField `work_desc:"Is the image of a landscape (a non urban setting)?" work_id:"is_landscape" work_type:"checkbox"`
 	IsPattern            OutputField `work_desc:"Is the image of a pattern?" work_id:"is_pattern" work_type:"checkbox"`
-	IsPerson             OutputField `work_desc:"Is the image of a person?" work_id:"is_person" work_type:"checkbox"`
-	TraditionalClothing  OutputField `work_desc:"If it's a person are they wearing a traditional costume?" work_id:"traditional_clothing" work_type:"checkbox"`
+	IsPerson             OutputField `work_desc:"Does the image contain a people?" work_id:"is_person" work_type:"checkbox"`
+	TraditionalClothing  OutputField `work_desc:"If the image has people are they wearing traditional costume?" work_id:"traditional_clothing" work_type:"checkbox"`
 	IsMap                OutputField `work_desc:"Is the image a map?" work_id:"is_map" work_type:"checkbox"`
 	IsDiagram            OutputField `work_desc:"Is the image a diagram?" work_id:"is_diagram" work_type:"checkbox"`
 }
