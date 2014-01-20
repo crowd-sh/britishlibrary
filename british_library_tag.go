@@ -65,7 +65,7 @@ func main() {
 Look at the image and fill out the appropriate fields. We want to be able to tag all the images correctly. Fill out any appropriate tag that you see.
  <a href="https://github.com/abhiyerra/britishlibrary/wiki/Instructions-&-FAQ">Here are further Instructions and FAQ</a>`
 
-	image_tasks := Task{
+	image_tasks := TaskDesc{
 		Title:       "Tag the appropriate images",
 		Description: description,
 		Write:       CsvJobWriter(results_file),
@@ -73,11 +73,11 @@ Look at the image and fill out the appropriate fields. We want to be able to tag
 	}
 
 	fmt.Printf("Loaded %d images and starting\n", len(image_urls))
-	serve := HtmlServe{}
+	serve := SplitHtmlServe{}
 	go HtmlServer()
 
 	fmt.Println("Serving")
-	var backend Assigner = serve
-	NewBatch(image_tasks).Run(backend)
+	var backend SplitAssigner = serve
+	NewBatch(image_tasks).RunSplit(backend)
 
 }
