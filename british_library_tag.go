@@ -5,6 +5,8 @@ import (
 	"flag"
 	"fmt"
 	. "github.com/abhiyerra/workmachine/crowdflow"
+	writers "github.com/abhiyerra/workmachine/crowdflow/writers"
+	"log"
 	"os"
 )
 
@@ -65,19 +67,18 @@ func main() {
 Look at the image and fill out the appropriate fields. We want to be able to tag all the images correctly. Fill out any appropriate tag that you see.
  <a href="https://github.com/abhiyerra/britishlibrary/wiki/Instructions-&-FAQ">Here are further Instructions and FAQ</a>`
 
-	image_tasks := TaskDesc{
+	brit_batch := TaskConfig{
 		Title:       "Tag the appropriate images",
 		Description: description,
-		Write:       CsvJobWriter(results_file),
+		Write:       writers.Csv(results_file),
 		Tasks:       image_urls,
 	}
 
-	fmt.Printf("Loaded %d images and starting\n", len(image_urls))
-	serve := SplitHtmlServe{}
-	go HtmlServer()
+	log.Printf("Loaded %d images and starting\n", len(image_urls))
 
-	fmt.Println("Serving")
-	var backend SplitAssigner = serve
-	NewBatch(image_tasks).RunSplit(backend)
-
+	go EnableHtmlServer(IndexConfig{
+		Name: brit_batch.Title,
+	Url: "
+	})
+	NewBatch(brit_batch).Run()
 }
