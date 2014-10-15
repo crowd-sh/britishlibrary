@@ -1,33 +1,22 @@
-British Library Crowdsourced Tagging
-==============
+# British Library Crowdsourced Tagging
 
-A [WorkMachine](https://github.com/abhiyerra/workmachine/) workflow to
+A [WorkMachine](https://github.com/workmachine/workmachine/) workflow to
 tag the British Library
 [images released on Flickr](http://www.flickr.com/photos/britishlibrary/). Help
 curate and tag the images.
 
-Running
-===============
+## Running
 
-This is a project written in go so the best way to run it is to run
+The files in the *lists* directory are links to the actual images. To
+run the flow run it as follows based on having a _crowdflow_ command.
 
-    go run british_library_tag.go -in_file in_file.csv
+    crowdflow -in_file in_file british_library_tag.json
 
-or complie the app
-
-    go build
-    ./british_library_tag -in_file in_file.csv
-
-The files are in lists. This will eventually make use of the
-imagedirectory and have more relavent information.
-
-
-LICENSE
-===============
+## LICENSE
 
 The MIT License (MIT)
 
-Copyright (c) 2013 Abhi Yerra
+Copyright (c) 2013-2014 Abhi Yerra <abhi@berkeley.edu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
