@@ -2,68 +2,57 @@
     "title": "Tag the appropriate images",
     "description": "Look at the image and fill out the appropriate fields. We want to be able to tag all the images correctly. Fill out any appropriate tag that you see. <a href=\"https://github.com/abhiyerra/britishlibrary/wiki/Instructions-&-FAQ\">Here are further Instructions and FAQ</a>",
     "url": "http://workmachine.us",
-    "fields" : [
+    "input_fields" : [
         {
             "id": "ImageUrl",
-            "type": "InputField",
             "description": "Use this image to fill the information below.",
             "field_type": "image"
-        },
+        }
+    ],
+    "output_fields": [
         {
             "id": "Tags",
-            "type": "OutputField",
             "description": "List all the relevent tags separated by a comma for the image. Ex. trees, castle, person"
         },
         {
             "id": "TextInImage",
-            "type": "OutputField",
             "description": "Put any caption that appears of the image here. Put one item per line if there are multiple.",
             "field_type" :"long_text"
         },
         {
             "id": "IsCorrectOrientation",
-            "type": "OutputField",
             "description": "Is the image in the correct orientation?",
             "field_type": "checkbox"
         },
         {
             "id": "IsLandscape",
-            "type": "OutputField",
             "description": "Is the image of a landscape (a non urban setting)?",
             "field_type": "checkbox"
         },
         {
             "id": "IsPattern",
-            "type": "OutputField",
             "description": "Is the image of a pattern?",
             "field_type": "checkbox"
         },
         {
             "id": "IsPerson",
-            "type": "OutputField",
             "description": "Does the image contain people?",
             "field_type": "checkbox"
         },
         {
             "id": "TraditionalClothing",
-            "type": "OutputField",
             "description": "If the image has people are they wearing traditional clothes?",
             "field_type": "checkbox"
         },
         {
             "id": "IsMap",
-            "type": "OutputField",
             "description": "Is the image a map?",
             "field_type": "checkbox"
         },
         {
             "id": "IsDiagram",
-            "type": "OutputField",
             "description": "Is the image a diagram?",
             "field_type": "checkbox"
         }
-    ],
-    "csv_config": {
-        "1": "ImageUrl"
-    }
+    ]
 }
